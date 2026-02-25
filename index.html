@@ -1,162 +1,499 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Joy Botros's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Botros | UI/UX Designer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/luxury.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-line"></div>
+            <span class="loader-text">JB</span>
+        </div>
+    </div>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Hello!<br />
-						I'm Joy Botros</h1>
-						<p>Computer Science and Cognitive Science Major, Media, Arts, and Culture Minor at Occidental College | Connect with me on 
-							<a href="https://www.linkedin.com/in/joybotros/">LinkedIn</a> 
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">
+            <a href="#hero">Joy Botros</a>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#expertise" class="nav-link">Expertise</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Joy Botros</a>
-					</header>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline class="hero-video" id="hero-video">
+                <source src="https://cdn.coverr.co/videos/coverr-abstract-golden-liquid-3929/1080p.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-line"></span>
+                <span class="hero-badge-text">UI/UX Designer</span>
+                <span class="hero-badge-line"></span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="hero-title-line">
+                    <span class="hero-title-word" data-text="Joy">Joy</span>
+                </span>
+                <span class="hero-title-line">
+                    <span class="hero-title-word" data-text="Botros">Botros</span>
+                </span>
+            </h1>
+            
+            <p class="hero-subtitle">Crafting Elegant Digital Experiences</p>
+            
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary">
+                    <span class="btn-text">View My Work</span>
+                    <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get in Touch</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll">
+            <span class="hero-scroll-text">Scroll</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+        
+        <div class="hero-social">
+            <a href="https://www.linkedin.com/in/joybotros/" target="_blank" class="hero-social-link">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </section>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Projects</a></li>
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/joybotros/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-						</ul>
-					</nav>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Introduction</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-frame"></div>
+                        <div class="about-image-inner">
+                            <div class="about-image-placeholder">
+                                <span class="about-initials">JB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image-decoration"></div>
+                </div>
+                
+                <div class="about-text">
+                    <h3 class="about-headline">Blending Technology with Human-Centered Design</h3>
+                    <p class="about-description">
+                        As an aspiring designer with a unique background in Computer Science and Cognitive Science at Occidental College, 
+                        I bring a distinctive perspective to digital design. My work exists at the intersection of technology and human cognition—creating 
+                        experiences that are not only visually stunning but deeply intuitive.
+                    </p>
+                    <p class="about-description">
+                        I believe great design transcends aesthetics. It's about understanding how people think, feel, and interact. 
+                        Every pixel I place, every interaction I craft, is informed by a deep understanding of human behavior and a relentless 
+                        pursuit of elegance in simplicity.
+                    </p>
+                    
+                    <div class="about-details">
+                        <div class="about-detail">
+                            <span class="about-detail-label">Location</span>
+                            <span class="about-detail-value">Los Angeles, CA</span>
+                        </div>
+                        <div class="about-detail">
+                            <span class="about-detail-label">Education</span>
+                            <span class="about-detail-value">Occidental College</span>
+                        </div>
+                        <div class="about-detail">
+                            <span class="about-detail-label">Focus</span>
+                            <span class="about-detail-value">UI/UX Design</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-dark">
+                        <span class="btn-text">Let's Connect</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Main -->
-					<div id="main">
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header section-header-light">
+                <span class="section-tag">What I Do</span>
+                <h2 class="section-title">Areas of Expertise</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card" data-aos="fade-up">
+                    <div class="expertise-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 class="expertise-title">UI Design</h3>
+                    <p class="expertise-description">
+                        Creating visually stunning interfaces that captivate users while maintaining 
+                        clarity and purpose. Every element is crafted with precision and intention.
+                    </p>
+                    <div class="expertise-number">01</div>
+                </div>
+                
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="expertise-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="expertise-title">UX Research</h3>
+                    <p class="expertise-description">
+                        Deep diving into user behavior and psychology to uncover insights that 
+                        inform design decisions and create meaningful experiences.
+                    </p>
+                    <div class="expertise-number">02</div>
+                </div>
+                
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="expertise-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="expertise-title">Prototyping</h3>
+                    <p class="expertise-description">
+                        Bringing ideas to life through interactive prototypes that demonstrate 
+                        functionality and gather valuable feedback early in the design process.
+                    </p>
+                    <div class="expertise-number">03</div>
+                </div>
+                
+                <div class="expertise-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="expertise-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="expertise-title">Cognitive Design</h3>
+                    <p class="expertise-description">
+                        Applying cognitive science principles to create interfaces that align 
+                        with how users naturally think and process information.
+                    </p>
+                    <div class="expertise-number">04</div>
+                </div>
+            </div>
+            
+            <div class="skills-showcase">
+                <h3 class="skills-title">Tools & Technologies</h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <span class="skill-name">Figma</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Adobe XD</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Sketch</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Prototyping</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">User Research</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									
-									<h2><a href="#">About Me<br />
-								</a></h2>
-									<p>As an aspiring computer scientist and cognitive science major at Occidental College, 
-										I am passionate about exploring the intersections between technology and human cognition. 
-										I'm actively seeking internships, part-time roles, and collaborative projects that will allow 
-										me to gain hands-on experience, deepen my technical and cognitive science expertise, and contribute 
-										meaningfully to impactful initiatives. I am open to connecting with professionals across diverse fields, 
-										exchanging ideas, and exploring new ways to leverage my skills in cognitive science and technology for 
-										innovative problem-solving.</p>
-								</header>
-								
-								</ul>
-							</article>
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Selected Work</span>
+                <h2 class="section-title">Portfolio</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <article class="portfolio-item portfolio-item-large">
+                    <a href="https://www.figma.com/design/yf6SV1xNATEtbKl9ybmy6k/Sports-Website--Prototype-?node-id=0-1&t=yPpQ5IwD3qCBr19v-1" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="images/Sports.png" alt="Sports Website Prototype">
+                            <div class="portfolio-overlay">
+                                <span class="portfolio-view">View Project <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">Web Design</span>
+                            <h3 class="portfolio-title">Sports Website</h3>
+                            <p class="portfolio-description">
+                                A comprehensive sports platform prototype featuring game highlights, player statistics, 
+                                and real-time news updates. Designed with an immersive user experience in mind.
+                            </p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Figma</span>
+                                <span class="portfolio-tag">UI/UX</span>
+                                <span class="portfolio-tag">Prototype</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Project 2 -->
+                <article class="portfolio-item">
+                    <a href="https://www.figma.com/design/FybLwhm8U5N2ehSIW5zhFd/Online-Green-Bean-Ordering--Prototype-?t=yPpQ5IwD3qCBr19v-1" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="images/Green Bean.png" alt="Green Bean Cafe App">
+                            <div class="portfolio-overlay">
+                                <span class="portfolio-view">View Project <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">Mobile App</span>
+                            <h3 class="portfolio-title">The Green Bean</h3>
+                            <p class="portfolio-description">
+                                A beverage ordering app crafted for Occidental College's student-run cafe, 
+                                streamlining the ordering experience with elegant simplicity.
+                            </p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Mobile</span>
+                                <span class="portfolio-tag">App Design</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Project 3 -->
+                <article class="portfolio-item">
+                    <a href="https://drive.google.com/drive/folders/1-w_wp6Sn0AOhlnGga9ucKu-ZEOnEU3Cy?usp=sharing" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="images/AI Video.png" alt="AI Video Series">
+                            <div class="portfolio-overlay">
+                                <span class="portfolio-view">View Project <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">Video Production</span>
+                            <h3 class="portfolio-title">AI Research Series</h3>
+                            <p class="portfolio-description">
+                                Co-directed and edited an educational video series teaching students 
+                                to leverage college resources for academic research.
+                            </p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Video</span>
+                                <span class="portfolio-tag">Direction</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Project 4 -->
+                <article class="portfolio-item portfolio-item-wide">
+                    <a href="https://www.figma.com/board/DKPPbd2p17RR2HvIBJMAxn/Teardown-Project?t=yPpQ5IwD3qCBr19v-1" target="_blank" class="portfolio-link">
+                        <div class="portfolio-image">
+                            <img src="images/tear.png" alt="Shortcuts App Teardown">
+                            <div class="portfolio-overlay">
+                                <span class="portfolio-view">View Project <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="portfolio-info">
+                            <span class="portfolio-category">UX Analysis</span>
+                            <h3 class="portfolio-title">Shortcuts Teardown</h3>
+                            <p class="portfolio-description">
+                                A comprehensive UX analysis of Apple's Shortcuts app, examining user flows, 
+                                interaction patterns, and areas for improvement through detailed teardown methodology.
+                            </p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">UX Research</span>
+                                <span class="portfolio-tag">Analysis</span>
+                                <span class="portfolio-tag">Case Study</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										
-										<h2><a href="https://www.figma.com/design/yf6SV1xNATEtbKl9ybmy6k/Sports-Website--Prototype-?node-id=0-1&t=yPpQ5IwD3qCBr19v-1">Sports Website - <br />
-										Prototype</a></h2>
-									</header>
-									<a href="https://www.figma.com/design/yf6SV1xNATEtbKl9ybmy6k/Sports-Website--Prototype-?node-id=0-1&t=yPpQ5IwD3qCBr19v-1" class="image fit"><img src="images/Sports.png" alt="" /></a>
-									<p>A prototype of a sports website that allows you to learn more about soccer, view game higlights, view recent news, see players statistics, and more.</p>
-									<ul class="actions special">
-										<li><a href="https://www.figma.com/design/yf6SV1xNATEtbKl9ybmy6k/Sports-Website--Prototype-?node-id=0-1&t=yPpQ5IwD3qCBr19v-1" class="button">View in Figma</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://www.figma.com/design/FybLwhm8U5N2ehSIW5zhFd/Online-Green-Bean-Ordering--Prototype-?t=yPpQ5IwD3qCBr19v-1">Cafe App: The Green Bean - <br />
-										Prototype</a></h2>
-									</header>
-									<a href="https://www.figma.com/design/FybLwhm8U5N2ehSIW5zhFd/Online-Green-Bean-Ordering--Prototype-?t=yPpQ5IwD3qCBr19v-1" class="image fit"><img src="images/Green Bean.png" alt="" /></a>
-									<p>A prototype for a beverage ordering app custom made for the student-run cafe at Occidental College called The Green Bean.</p>
-									<ul class="actions special">
-										<li><a href="https://www.figma.com/design/FybLwhm8U5N2ehSIW5zhFd/Online-Green-Bean-Ordering--Prototype-?t=yPpQ5IwD3qCBr19v-1" class="button">View in Figma</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://drive.google.com/drive/folders/1-w_wp6Sn0AOhlnGga9ucKu-ZEOnEU3Cy?usp=sharing">College Resource: AI Video Series<br />
-										</a></h2>
-									</header>
-									<a href="https://drive.google.com/drive/folders/1-w_wp6Sn0AOhlnGga9ucKu-ZEOnEU3Cy?usp=sharing" class="image fit"><img src="images/AI Video.png" alt="" /></a>
-									<p>Co-directed, edited, and filmed a video series teaching students how to locate academic articles using college resources rather than relying on AI chatbots.</p>
-									<ul class="actions special">
-										<li><a href="https://drive.google.com/drive/folders/1-w_wp6Sn0AOhlnGga9ucKu-ZEOnEU3Cy?usp=sharing" class="button">View Videos</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										
-										<h2><a href="https://www.figma.com/board/DKPPbd2p17RR2HvIBJMAxn/Teardown-Project?t=yPpQ5IwD3qCBr19v-1">Teardown Project: Shortcuts App<br />
-										</a></h2>
-									</header>
-									<a href="https://www.figma.com/board/DKPPbd2p17RR2HvIBJMAxn/Teardown-Project?t=yPpQ5IwD3qCBr19v-1" class="image fit"><img src="images/tear.png" alt="" /></a>
-									<p>Analyzed and reflected on the Shortcuts app on iPhone. </p>
-									<ul class="actions special">
-										<li><a href="https://www.figma.com/board/DKPPbd2p17RR2HvIBJMAxn/Teardown-Project?t=yPpQ5IwD3qCBr19v-1" class="button">View in Figma</a></li>
-									</ul>
-								</article>
-								
-						
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="section-header section-header-left">
+                        <span class="section-tag">Get in Touch</span>
+                        <h2 class="section-title">Let's Create<br>Something Beautiful</h2>
+                        <div class="section-line"></div>
+                    </div>
+                    
+                    <p class="contact-description">
+                        I'm always excited to discuss new projects, creative ideas, or opportunities to be part of your vision. 
+                        Let's connect and explore how we can work together.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">Location</span>
+                                <span class="contact-detail-value">Los Angeles, California</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">Email</span>
+                                <a href="mailto:jbotr1214@gmail.com" class="contact-detail-value">jbotr1214@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-detail-content">
+                                <span class="contact-detail-label">Phone</span>
+                                <a href="tel:+13236218241" class="contact-detail-value">(323) 621-8241</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="https://www.linkedin.com/in/joybotros/" target="_blank" class="contact-social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Los Angeles, California<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(323) 621-8241</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">jbotr1214@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/joybotros/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
-									</ul>
-							</section>
-						</section>
-					</footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Joy Botros</span>
+                    <p class="footer-tagline">UI/UX Designer & Creative Thinker</p>
+                </div>
+                
+                <div class="footer-nav">
+                    <a href="#hero" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#portfolio" class="footer-link">Work</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/joybotros/" target="_blank" class="footer-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Joy Botros. Crafted with passion.</p>
+            </div>
+        </div>
+    </footer>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <!-- Scripts -->
+    <script src="assets/js/luxury.js"></script>
+</body>
 </html>
