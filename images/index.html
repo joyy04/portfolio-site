@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joy Botros, UX Design</title>
+<meta name="description" content="UX design portfolio of Joy Botros. Case studies in LA History, an educational history app, and The Green Bean, a campus cafe ordering app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,440;0,9..144,560;1,9..144,440&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #ECEEE8;
+    --paper-deep: #E1E4D9;
+    --paper-card: #F5F6F0;
+    --ink: #1B2420;
+    --ink-soft: #4B564C;
+    --ink-faint: #7A8378;
+    --rust: #B54A34;
+    --moss: #4B6350;
+    --brass: #A9822E;
+    --line: #C6CCBC;
+    --max: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:560;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  /* ---------- Nav rail ---------- */
+  .rail{
+    position:fixed;
+    top:0; left:0;
+    height:100vh;
+    width:220px;
+    padding:40px 0 40px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index:50;
+    pointer-events:none;
+  }
+  .rail-top, .rail-nav, .rail-bottom{pointer-events:auto;}
+  .mark{
+    font-family:'Fraunces', serif;
+    font-weight:560;
+    font-size:1.15rem;
+    letter-spacing:0.01em;
+  }
+  .mark span{color:var(--rust);}
+  .rail-nav{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .rail-nav li a{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+    font-size:0.86rem;
+    color:var(--ink-faint);
+    transition:color 0.25s ease;
+  }
+  .rail-nav li a .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--line);
+    flex:none;
+    transition:background 0.25s ease, transform 0.25s ease;
+  }
+  .rail-nav li a.active{color:var(--ink);}
+  .rail-nav li a.active .dot{background:var(--rust); transform:scale(1.5);}
+  .rail-nav li a:hover{color:var(--ink);}
+  .rail-bottom{font-size:0.78rem; color:var(--ink-faint); line-height:1.6;}
+  .rail-bottom a{text-decoration:none; border-bottom:1px solid var(--line);}
+
+  .topbar{display:none;}
+
+  @media (max-width: 980px){
+    .rail{display:none;}
+    .topbar{
+      display:flex; justify-content:space-between; align-items:center;
+      position:sticky; top:0; z-index:50;
+      background:var(--paper);
+      border-bottom:1px solid var(--line);
+      padding:16px 24px;
+    }
+    .topbar .mark{font-size:1.05rem;}
+    .topbar select{
+      font-family:'Public Sans', sans-serif;
+      font-size:0.85rem;
+      background:transparent;
+      border:1px solid var(--line);
+      border-radius:2px;
+      padding:6px 8px;
+      color:var(--ink);
+    }
+  }
+
+  main{
+    margin-left:220px;
+  }
+  @media (max-width: 980px){
+    main{margin-left:0;}
+  }
+
+  section{padding:120px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  /* ---------- Hero ---------- */
+  #hero{
+    padding-top:100px;
+    padding-bottom:100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .coord-line{
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    margin-bottom:28px;
+    opacity:0;
+    animation:fadeUp 0.7s ease forwards;
+    animation-delay:0.05s;
+  }
+  .hero-headline{
+    font-size:clamp(2.6rem, 5.6vw, 4.6rem);
+    line-height:1.06;
+    max-width:15ch;
+    opacity:0;
+    animation:fadeUp 0.8s ease forwards;
+    animation-delay:0.18s;
+  }
+  .hero-headline em{
+    font-style:italic;
+    color:var(--rust);
+  }
+  .hero-sub{
+    margin-top:28px;
+    max-width:52ch;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    opacity:0;
+    animation:fadeUp 0.8s ease forwards;
+    animation-delay:0.34s;
+  }
+  .hero-route{
+    margin-top:44px;
+    width:100%;
+    max-width:520px;
+    height:2px;
+    opacity:0;
+    animation:fadeIn 0.6s ease forwards;
+    animation-delay:0.55s;
+  }
+  .hero-route path{
+    stroke:var(--line);
+    stroke-width:1.5;
+    fill:none;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 1.1s ease forwards;
+    animation-delay:0.6s;
+  }
+  .hero-route circle{
+    fill:var(--rust);
+    opacity:0;
+    animation:fadeIn 0.4s ease forwards;
+    animation-delay:1.5s;
+  }
+  .hero-cta{
+    margin-top:44px;
+    display:flex; gap:28px; flex-wrap:wrap;
+    opacity:0;
+    animation:fadeUp 0.8s ease forwards;
+    animation-delay:0.5s;
+  }
+  .btn{
+    font-family:'Public Sans', sans-serif;
+    font-size:0.92rem;
+    text-decoration:none;
+    padding:12px 22px;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    border-radius:2px;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .btn:hover{background:var(--ink); color:var(--paper);}
+  .btn.primary{background:var(--rust); border-color:var(--rust); color:var(--paper);}
+  .btn.primary:hover{background:#973a28; border-color:#973a28;}
+
+  @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:64px;
+  }
+  @media (max-width:700px){.about-grid{grid-template-columns:1fr;}}
+  .stamp{
+    width:150px; height:150px;
+    border:1px solid var(--ink);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:2.4rem;
+    font-weight:560;
+    position:relative;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px solid var(--line);
+    border-radius:50%;
+  }
+  .kicker{
+    font-size:0.86rem;
+    color:var(--ink-faint);
+    margin-bottom:10px;
+  }
+  .section-title{
+    font-size:clamp(1.7rem, 2.6vw, 2.3rem);
+    margin-bottom:28px;
+    max-width:20ch;
+  }
+  .about-body p{max-width:62ch; color:var(--ink-soft); margin:0 0 18px;}
+  .about-body p:last-child{margin-bottom:0;}
+  .tags{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:28px;
+  }
+  .tag{
+    font-size:0.82rem;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--ink-soft);
+  }
+  .facts{
+    margin-top:32px;
+    display:grid;
+    grid-template-columns:repeat(3, auto);
+    gap:32px;
+  }
+  @media (max-width:600px){.facts{grid-template-columns:1fr; gap:16px;}}
+  .fact-label{font-size:0.78rem; color:var(--ink-faint); margin-bottom:4px;}
+  .fact-value{font-size:0.95rem; color:var(--ink);}
+
+  /* ---------- Work index ---------- */
+  .plates{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin-top:48px;
+  }
+  @media (max-width:800px){.plates{grid-template-columns:1fr;}}
+  .plate{
+    border:1px solid var(--line);
+    background:var(--paper-card);
+    text-decoration:none;
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    transition:border-color 0.25s ease;
+  }
+  .plate:hover{border-color:var(--ink);}
+  .plate-thumb{
+    height:230px;
+    background-size:cover;
+    background-position:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .plate-body{padding:26px 28px 30px;}
+  .plate-eyebrow{font-size:0.78rem; color:var(--ink-faint); margin-bottom:8px;}
+  .plate-title{font-size:1.5rem; margin-bottom:10px;}
+  .plate-desc{font-size:0.95rem; color:var(--ink-soft); margin-bottom:18px;}
+  .plate-link{font-size:0.88rem; border-bottom:1px solid var(--ink); padding-bottom:2px; display:inline-block;}
+
+  /* ---------- Case study ---------- */
+  .cs-head{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:32px;
+    align-items:end;
+    margin-bottom:56px;
+  }
+  @media (max-width:700px){.cs-head{grid-template-columns:1fr;}}
+  .cs-meta{
+    display:flex; flex-direction:column; gap:10px;
+    font-size:0.86rem;
+    color:var(--ink-faint);
+    text-align:right;
+  }
+  @media (max-width:700px){.cs-meta{text-align:left;}}
+  .cs-body{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:64px;
+  }
+  @media (max-width:800px){.cs-body{grid-template-columns:1fr;}}
+  .cs-index{
+    position:sticky; top:40px;
+    align-self:start;
+    list-style:none;
+    padding:0; margin:0;
+    display:flex; flex-direction:column; gap:12px;
+    font-size:0.85rem;
+    color:var(--ink-faint);
+    border-left:2px solid var(--line);
+  }
+  .cs-index li{padding-left:14px;}
+  .cs-content h3{
+    font-size:1.5rem;
+    margin-top:56px;
+    margin-bottom:18px;
+  }
+  .cs-content h3:first-child{margin-top:0;}
+  .cs-content p{color:var(--ink-soft); max-width:66ch; margin:0 0 16px;}
+  .cs-content p:last-child{margin-bottom:0;}
+  .cs-content strong{color:var(--ink); font-weight:600;}
+
+  .summary-strip{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+    margin-bottom:52px;
+  }
+  @media (max-width:700px){.summary-strip{grid-template-columns:1fr; gap:16px;}}
+  .summary-strip .fact-value{max-width:34ch; line-height:1.4;}
+
+  .cs-content ul{
+    list-style:none;
+    margin:0 0 20px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    max-width:66ch;
+  }
+  .cs-content ul li{
+    position:relative;
+    padding-left:20px;
+    color:var(--ink-soft);
+  }
+  .cs-content ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top:0.5em;
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--rust);
+  }
+
+  .quote{
+    margin:28px 0;
+    padding:18px 24px;
+    border-left:2px solid var(--rust);
+    background:var(--paper-card);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.08rem;
+    color:var(--ink);
+    max-width:60ch;
+  }
+  .quote cite{
+    display:block;
+    font-family:'Public Sans', sans-serif;
+    font-style:normal;
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    margin-top:10px;
+  }
+
+  figure{margin:32px 0;}
+  figure img{border:1px solid var(--line);}
+  figcaption{
+    font-size:0.82rem;
+    color:var(--ink-faint);
+    margin-top:10px;
+    max-width:60ch;
+  }
+  .fig-pair{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+  @media (max-width:700px){.fig-pair{grid-template-columns:1fr;}}
+
+  .finding{
+    margin:24px 0;
+    padding:22px 24px;
+    border:1px solid var(--line);
+  }
+  .finding-label{
+    font-size:0.78rem;
+    color:var(--moss);
+    margin-bottom:8px;
+  }
+  .finding-label.problem{color:var(--rust);}
+
+  .prototype-link{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:8px;
+    padding:12px 20px;
+    border:1px solid var(--ink);
+    text-decoration:none;
+    font-size:0.9rem;
+    color:var(--ink);
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .prototype-link:hover{background:var(--ink); color:var(--paper);}
+
+  /* ---------- More work ---------- */
+  .more-list{list-style:none; padding:0; margin:32px 0 0; display:flex; flex-direction:column; gap:0;}
+  .more-list li{border-top:1px solid var(--line); padding:18px 0;}
+  .more-list li:last-child{border-bottom:1px solid var(--line);}
+  .more-row{display:flex; justify-content:space-between; align-items:baseline; gap:16px; text-decoration:none; color:var(--ink);}
+  .more-row:hover .more-title{color:var(--rust);}
+  .more-title{font-family:'Fraunces', serif; font-size:1.15rem; transition:color 0.2s ease;}
+  .more-tag{font-size:0.82rem; color:var(--ink-faint); white-space:nowrap;}
+
+  /* ---------- Contact ---------- */
+  #contact{border-bottom:none;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    margin-top:40px;
+  }
+  @media (max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-entry{border-top:1px solid var(--line); padding-top:14px;}
+  .contact-entry .fact-label{margin-bottom:6px;}
+  .contact-entry a{
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .contact-entry a:hover{border-bottom-color:var(--ink);}
+  footer{
+    padding:28px 0 60px;
+    font-size:0.8rem;
+    color:var(--ink-faint);
+  }
+
+  a:focus-visible, .btn:focus-visible, .plate:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="mark">Joy <span style="color:var(--rust)">Botros</span></div>
+  <select onchange="window.location.hash=this.value">
+    <option value="">Jump to</option>
+    <option value="#about">About</option>
+    <option value="#work">Work</option>
+    <option value="#la-history">LA History</option>
+    <option value="#green-bean">Green Bean</option>
+    <option value="#contact">Contact</option>
+  </select>
+</div>
+
+<nav class="rail">
+  <div class="rail-top">
+    <div class="mark">JB<span>·</span></div>
+  </div>
+  <ul class="rail-nav" id="railNav">
+    <li><a href="#hero" data-target="hero"><span class="dot"></span>Home</a></li>
+    <li><a href="#about" data-target="about"><span class="dot"></span>About</a></li>
+    <li><a href="#work" data-target="work"><span class="dot"></span>Work</a></li>
+    <li><a href="#la-history" data-target="la-history"><span class="dot"></span>LA History</a></li>
+    <li><a href="#green-bean" data-target="green-bean"><span class="dot"></span>Green Bean</a></li>
+    <li><a href="#contact" data-target="contact"><span class="dot"></span>Contact</a></li>
+  </ul>
+  <div class="rail-bottom">
+    Los Angeles, CA<br>
+    <a href="mailto:jbotr1214@gmail.com">jbotr1214@gmail.com</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="hero">
+    <div class="wrap">
+      <div class="coord-line">34.0522° N, 118.2437° W, Los Angeles, CA</div>
+      <h1 class="hero-headline">Design shaped by how people <em>actually</em> think.</h1>
+      <p class="hero-sub">I'm Joy Botros, a UX designer with a background in Computer Science and Cognitive Science at Occidental College. My process starts with watching how people actually behave, not with how I assume they will.</p>
+      <svg class="hero-route" viewBox="0 0 520 20" preserveAspectRatio="none">
+        <path d="M0,10 C120,10 160,2 260,10 S440,18 520,10" />
+        <circle cx="520" cy="10" r="4"></circle>
+      </svg>
+      <div class="hero-cta">
+        <a class="btn primary" href="#work">View case studies</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="stamp">JB</div>
+        <div>
+          <div class="kicker">About</div>
+          <h2 class="section-title">Two majors, one question: why do people do what they do on screen?</h2>
+          <div class="about-body">
+            <p>I study Computer Science and Cognitive Science at Occidental College, which means most of my design decisions get made twice: once for whether they work, and once for whether they match how people naturally think, remember, and make choices.</p>
+            <p>In practice that looks like running actual user testing before I commit to a direction, being willing to throw out a feature idea when research contradicts it, and being specific about the mechanism behind a design decision rather than just the decision itself.</p>
+            <p>The two case studies below cover an educational history app built around Vygotsky's Zone of Proximal Development, and a campus cafe ordering app built from 22 student interviews.</p>
+          </div>
+          <div class="facts">
+            <div>
+              <div class="fact-label">Location</div>
+              <div class="fact-value">Los Angeles, CA</div>
+            </div>
+            <div>
+              <div class="fact-label">Education</div>
+              <div class="fact-value">Occidental College</div>
+            </div>
+            <div>
+              <div class="fact-label">Focus</div>
+              <div class="fact-value">UI/UX Design</div>
+            </div>
+          </div>
+          <div class="tags">
+            <span class="tag">Figma</span>
+            <span class="tag">Adobe XD</span>
+            <span class="tag">Sketch</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">User research</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="kicker">Selected work</div>
+      <h2 class="section-title">Two case studies</h2>
+      <div class="plates">
+        <a class="plate" href="#la-history">
+          <div class="plate-thumb" style="background-image:url('images/mapview.png')"></div>
+          <div class="plate-body">
+            <div class="plate-eyebrow">Web app · UX research &amp; design</div>
+            <div class="plate-title">LA History</div>
+            <p class="plate-desc">An educational app where students build concept maps of Los Angeles history with a Socratic AI tutor. Grounded in Vygotsky's Zone of Proximal Development.</p>
+            <span class="plate-link">Read the case study</span>
+          </div>
+        </a>
+        <a class="plate" href="#green-bean">
+          <div class="plate-thumb" style="background-image:url('images/green-home.png'); background-position:top center;"></div>
+          <div class="plate-body">
+            <div class="plate-eyebrow">Mobile app · UX design</div>
+            <div class="plate-title">The Green Bean</div>
+            <p class="plate-desc">An app for ordering ahead at Occidental's student run cafe, built from 22 student interviews and tested to fix a confusing queue estimate.</p>
+            <span class="plate-link">Read the case study</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LA HISTORY ================= -->
+  <section id="la-history">
+    <div class="wrap">
+      <div class="cs-head">
+        <div>
+          <div class="kicker">Case study 01</div>
+          <h2 class="section-title" style="max-width:22ch;">LA History: a concept mapping tool for learning city history</h2>
+        </div>
+        <div class="cs-meta">
+          <span>Role: UX design &amp; user research</span>
+          <span>Team of 3 · Occidental College</span>
+          <span>Figma · Cytoscape · Flask · Ollama</span>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <ul class="cs-index">
+          <li>Problem</li>
+          <li>Research</li>
+          <li>Design response</li>
+          <li>Outcome</li>
+        </ul>
+        <div class="cs-content">
+
+          <div class="summary-strip">
+            <div>
+              <div class="fact-label">Problem</div>
+              <div class="fact-value">Students read history passively instead of building real understanding of it.</div>
+            </div>
+            <div>
+              <div class="fact-label">My role</div>
+              <div class="fact-value">UX design and user research, team of 3</div>
+            </div>
+            <div>
+              <div class="fact-label">Outcome</div>
+              <div class="fact-value">One round of changes shipped, second round not yet tested</div>
+            </div>
+          </div>
+
+          <h3>Problem</h3>
+          <p>LA History teaches Los Angeles history across four eras through an interactive map, quizzes, and a concept mapping tool paired with a Socratic AI tutor, grounded in Vygotsky's Zone of Proximal Development.</p>
+          <ul>
+            <li>History apps default to passive reading: see a fact, move on.</li>
+            <li>The goal was an experience where students build connections themselves, with a tutor that scaffolds thinking instead of handing over answers.</li>
+          </ul>
+          <figure>
+            <img src="images/sketch.png" alt="Early hand drawn wireframe of the LA History layout, showing a map view with a retractable chatbox and the technical flow from browser to Flask backend to the local Ollama model and back.">
+            <figcaption>Fig. 1: Early wireframe of the map view, chat panel, and the request flow behind it.</figcaption>
+          </figure>
+
+          <h3>Research</h3>
+          <p>I wrote the protocol and ran moderated usability sessions with four participants using a think aloud method.</p>
+          <div class="finding">
+            <div class="finding-label problem">Finding 1: Onboarding friction</div>
+            <p style="margin:0;">Most participants skipped or skimmed the tutorial, then got stuck later.</p>
+          </div>
+          <div class="quote">
+            "The instructions make sense to you guys because you made them."
+            <cite>Participant 3, exit interview</cite>
+          </div>
+          <div class="finding">
+            <div class="finding-label problem">Finding 2: The AI tutor was not used as designed</div>
+            <p style="margin:0;">Meant to be a Socratic scaffold, it was mostly ignored or treated like a generic chatbot with short, low effort questions.</p>
+          </div>
+
+          <h3>Design response</h3>
+          <ul>
+            <li><strong>Onboarding:</strong> replaced the static popup with a spotlighted walkthrough that dims the screen and points at each feature directly.</li>
+            <li><strong>AI tutor scope:</strong> narrowed the chat from open ended Q&amp;A to a tool bound to the concept map, so it responds to the student's current nodes and prompts revisions instead of answering unrelated questions.</li>
+          </ul>
+
+          <div class="fig-pair">
+            <figure>
+              <img src="images/conceptmap.png" alt="Final concept map screen. Students place location nodes and draw labeled connections between them while an AI tutor panel on the right asks guiding questions about the map.">
+              <figcaption>Fig. 2: The concept map, with the tutor responding to the student's actual nodes.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/mapview.png" alt="Final map view showing pins across Los Angeles coded by era, with a location detail panel open for Chavez Ravine showing a photo, description, and an embedded documentary clip.">
+              <figcaption>Fig. 3: The map view, coded by era and synced to the chat.</figcaption>
+            </figure>
+          </div>
+          <figure>
+            <img src="images/dashboard.png" alt="Progress dashboard showing era completion rings for Native, Spanish, Rancho, and Modern eras, along with points and an earned badge collection.">
+            <figcaption>Fig. 4: The progress dashboard, tracking era completion and badges.</figcaption>
+          </figure>
+
+          <h3>Outcome</h3>
+          <p>One round of testing led to these changes, but there was no second round to confirm they actually worked. Next step: retest the onboarding and tutor scope with new participants.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GREEN BEAN ================= -->
+  <section id="green-bean">
+    <div class="wrap">
+      <div class="cs-head">
+        <div>
+          <div class="kicker">Case study 02</div>
+          <h2 class="section-title" style="max-width:22ch;">The Green Bean: ordering ahead for a campus cafe with no digital line</h2>
+        </div>
+        <div class="cs-meta">
+          <span>Role: UX/UI design</span>
+          <span>Client: Occidental College cafe</span>
+          <span>Figma, 22 interviews, usability test with 12 students</span>
+        </div>
+      </div>
+
+      <div class="cs-body">
+        <ul class="cs-index">
+          <li>Problem</li>
+          <li>Design decisions</li>
+          <li>Testing &amp; iteration</li>
+          <li>Outcome</li>
+        </ul>
+        <div class="cs-content">
+
+          <div class="summary-strip">
+            <div>
+              <div class="fact-label">Problem</div>
+              <div class="fact-value">No way to order ahead, baristas had to stop taking orders at peak hours</div>
+            </div>
+            <div>
+              <div class="fact-label">My role</div>
+              <div class="fact-value">UX/UI design, 22 interviews, usability test with 12 students</div>
+            </div>
+            <div>
+              <div class="fact-label">Outcome</div>
+              <div class="fact-value">Completed as a course project, not deployed at the cafe</div>
+            </div>
+          </div>
+
+          <h3>Problem</h3>
+          <ul>
+            <li>Peak hour lines got long enough that baristas had to stop taking orders entirely.</li>
+            <li>No ordering channel besides standing in line, no matter the wait.</li>
+            <li>Across 22 student interviews, this was the most consistently cited frustration.</li>
+          </ul>
+
+          <h3>Design decisions</h3>
+          <p><strong>Ordering ahead with a live queue position.</strong> Mocked up as a UI element, not backend logic, since this was scoped as a design project. The mechanism: prep time per drink times orders ahead in line, updating in real time. I chose a moving number over a flat "10 minutes" because the real question people had was not how long, it was where they stood.</p>
+
+          <div class="fig-pair">
+            <figure>
+              <img src="images/green-order.png" alt="Order details screen for the Green Bean app, showing fields for drink name, hot or iced, size, espresso shots, milk type, syrups, and student A number.">
+              <figcaption>Fig. 1: The order form, where a student builds their drink.</figcaption>
+            </figure>
+            <figure>
+              <img src="images/green-queue.png" alt="Confirmation screen reading Your order is being prepared, with a badge showing Your drink is 2nd in Queue and a button to return home.">
+              <figcaption>Fig. 2: Confirmation screen, showing live queue position instead of a flat time.</figcaption>
+            </figure>
+          </div>
+
+          <p><strong>Club fundraiser drinks.</strong> Came from a request from MENASA's president, who was running an Arab American Heritage Month fundraiser. I generalized the one time ask into a standing home page feature any club could use going forward.</p>
+
+          <figure>
+            <img src="images/green-home.png" alt="Green Bean homepage showing a hero banner welcoming students, an order now button with a wait time note, and a featured drink section tagged JSA Fundraiser.">
+            <figcaption>Fig. 3: Home screen, with a club fundraiser drink in the featured section.</figcaption>
+          </figure>
+
+          <h3>Testing &amp; iteration</h3>
+          <p>I walked 12 students through the Figma prototype before finalizing the design.</p>
+          <div class="finding">
+            <div class="finding-label">What worked</div>
+            <p style="margin:0;">The fundraiser section resonated strongly, validating it as a standing feature rather than a one time add.</p>
+          </div>
+          <div class="finding">
+            <div class="finding-label problem">What didn't</div>
+            <p style="margin:0;">The queue position was confusing at first. I revised the label text so it reads as a live position, not a fixed wait time. Follow up walkthroughs showed the confusion was resolved.</p>
+          </div>
+
+          <p>
+            <a class="prototype-link" href="https://www.figma.com/design/FybLwhm8U5N2ehSIW5zhFd/Online-Green-Bean-Ordering--Prototype-?t=yPpQ5IwD3qCBr19v-1" target="_blank" rel="noopener">View the Figma prototype</a>
+          </p>
+
+          <h3>Outcome</h3>
+          <p>Completed as a course project, not deployed at the cafe. Next step: pilot with cafe staff to validate the queue based estimate against real prep times.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="more-work" style="padding-top:80px;">
+    <div class="wrap">
+      <div class="kicker">Also</div>
+      <h2 class="section-title" style="font-size:1.5rem;">More work</h2>
+      <ul class="more-list">
+        <li>
+          <a class="more-row" href="https://www.figma.com/design/yf6SV1xNATEtbKl9ybmy6k/Sports-Website--Prototype-?node-id=0-1&t=yPpQ5IwD3qCBr19v-1" target="_blank" rel="noopener">
+            <span class="more-title">Sports website prototype</span>
+            <span class="more-tag">Figma · UI/UX prototype</span>
+          </a>
+        </li>
+        <li>
+          <a class="more-row" href="https://www.figma.com/board/DKPPbd2p17RR2HvIBJMAxn/Teardown-Project?t=yPpQ5IwD3qCBr19v-1" target="_blank" rel="noopener">
+            <span class="more-title">Apple Shortcuts teardown</span>
+            <span class="more-tag">UX research · Figma board</span>
+          </a>
+        </li>
+        <li>
+          <a class="more-row" href="https://drive.google.com/drive/folders/1-w_wp6Sn0AOhlnGga9ucKu-ZEOnEU3Cy?usp=sharing" target="_blank" rel="noopener">
+            <span class="more-title">AI research video series</span>
+            <span class="more-tag">Video direction</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="kicker">Get in touch</div>
+      <h2 class="section-title">Let's talk about an entry level role.</h2>
+      <div class="contact-grid">
+        <div class="contact-entry">
+          <div class="fact-label">Email</div>
+          <a href="mailto:jbotr1214@gmail.com">jbotr1214@gmail.com</a>
+        </div>
+        <div class="contact-entry">
+          <div class="fact-label">Phone</div>
+          <a href="tel:+13236218241">(323) 621 8241</a>
+        </div>
+        <div class="contact-entry">
+          <div class="fact-label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/joybotros/" target="_blank" rel="noopener">linkedin.com/in/joybotros</a>
+        </div>
+        <div class="contact-entry">
+          <div class="fact-label">Location</div>
+          <span style="font-family:'Fraunces', serif; font-size:1.25rem;">Los Angeles, CA</span>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <footer>© 2026 Joy Botros</footer>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const links = document.querySelectorAll('.rail-nav a');
+  const sections = Array.from(links).map(l => document.getElementById(l.dataset.target)).filter(Boolean);
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = document.querySelector('.rail-nav a[data-target="' + id + '"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>
